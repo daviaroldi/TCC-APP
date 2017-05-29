@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Sessões</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button block (click)="create()">Criar Sessão</button>
+  <ion-list>
+   <button ion-item *ngFor="let session of sessions" (click)="sessionDetail(session)">
+     {{session.name}}
+   </button>
+ </ion-list>
+</ion-content>

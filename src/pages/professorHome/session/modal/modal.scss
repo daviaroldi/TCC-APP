@@ -1,0 +1,49 @@
+page-session-detail {
+  ion-content {
+    div {
+      margin-top: 15px;
+
+      h2.title {
+        text-align: justify;
+        font-size: 18px;
+      }
+      button {
+        background-color: white;
+        margin-top: 22px!important;
+
+        ion-icon {
+          font-size: 30px;
+          margin-right: 2px;
+        }
+      }
+      p {
+        margin-top: 10px!important;
+      }
+    }
+  }
+}
+
+page-session-create {
+  ion-content {
+    form {
+      margin-top: 15px;
+      h2.title {
+        text-align: justify;
+        font-size: 18px;
+        margin-top: 13px!important;
+      }
+      button {
+        background-color: white;
+        margin-top: 22px!important;
+
+        ion-icon {
+          font-size: 30px;
+          margin-right: 2px;
+        }
+      }
+      p {
+        margin-top: 10px!important;
+      }
+    }
+  }
+}
