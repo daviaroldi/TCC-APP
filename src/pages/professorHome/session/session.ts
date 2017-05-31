@@ -27,6 +27,11 @@ export class SessionPage {
     create() {
       let createModal = this.modalCtrl.create(SessionCreatePage, {});
       createModal.present();
+      createModal.onDidDismiss(data => {
+        if ('name' in data) {
+          this.reloadList();
+        }
+      });
     }
 
     sessionDetail(session) {

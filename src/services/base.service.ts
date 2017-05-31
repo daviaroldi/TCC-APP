@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { environment } from '../environments/environment';
 import { Storage } from "@ionic/storage";
+import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/Rx';
 
@@ -24,7 +25,7 @@ export class BaseService {
         public storage: Storage
     ) {}
 
-    createAuthorizarionHeader(header: Headers) {
+    createAuthorizarionHeader() {
         this.storage.get('token').then((val) => {
             this.headers.append('Authorization', val);
         });
@@ -56,34 +57,49 @@ export class BaseService {
     post(endpoint: string, params: any, token: any = null) {
         let body = JSON.stringify(params);
 
-        let options = this.getOptions();
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        });
+        // let options = this.getOptions();
         if (token != null) {
-          let headers = new Headers({
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'Access-Control-Allow-Headers': 'Authorization',
-              'Authorization': 'Token ' + token
-          });
-          let options = new RequestOptions({
-              withCredentials: true,
-              headers : headers
-          });
-          console.log(options);
+          headers.append('Authorization', 'Token ' + token);
         }
+        let options = {
+            withCredentials: true,
+            headers : headers
+        };
+        // return Observable.fromPromise(headers).switchMap((headers) => this.http.post(environment.urlBase + endpoint, body, { headers: headers }));
+        // return this.http.post(environment.urlBase + endpoint, body,
+        //   options).map(
+        //   response => response.json());
+        return new Promise(resolve => {
+            this.http.post(environment.urlBase + endpoint, body, options)
+                .map(response => {
+                        return response.json();
+                }).subscribe((data) => {
+                        // this.data = data;
+                        resolve(data)
+                    },
+                    (err) => {
+                        if (err.status == 400) {
+                            let body = err._body;
+                            body = JSON.parse(body);
+                            for (var i in body) {
+                                this.notifyError(body[i]);
+                            }
+                        } else {
+                            this.notifyError('Erro ao cadastrar! Verfique os campos preenchidos!');
+                        }
+                    }
+                );
 
-
-        return this.http.post(environment.urlBase + endpoint, body, options)
-                .toPromise()
-                .then(response => {
-                    return response.json();
-                }).catch((err) => {
-                this.notifyError('Erro!');
-            });
+        });
     }
 
     getOptions() {
         let options = new RequestOptions({
-            // withCredentials: true,
+            withCredentials: true,
         //     search: this.montaQueryParams(params),
             headers : this.headers
         });

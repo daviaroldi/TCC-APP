@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, AlertController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { SessionService } from "../session.service"
 
@@ -17,13 +17,15 @@ export class SessionCreatePage {
     constructor(
       public storage: Storage,
       public service: SessionService,
-      public viewCtrl: ViewController) { }
+      public viewCtrl: ViewController,
+      public alertCtrl: AlertController,) { }
 
     // ngOnInit() {
     //
     // }
 
     create() {
+      console.log('teste');
       this.storage.get('token').then(token => {
         this.storage.get('user').then(user => {
           let params = {
@@ -33,14 +35,27 @@ export class SessionCreatePage {
           };
 
           this.service.create(params, token).then((sessions) => {
-            console.log(sessions);
-            // this.sessions = sessions;
+            let alert = this.alertCtrl.create({
+                title: 'Sucesso',
+                subTitle: 'Sessão cadastrada com sucesso!',
+                buttons: [
+                  {
+                    text: 'OK',
+                    role: 'ok',
+                    handler: () => {
+                      this.viewCtrl.dismiss(this.session);
+                    }
+                  }
+                ]
+            });
+
+            alert.present();
           });
         });
       });
     }
 
     dismiss() {
-      this.viewCtrl.dismiss();
+      this.viewCtrl.dismiss({});
     }
 }

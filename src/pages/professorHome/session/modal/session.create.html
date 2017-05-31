@@ -1,11 +1,11 @@
 <ion-content padding>
+  <ion-item>
+    <h2 class="title">Detalhe da Sessão</h2>
+    <button item-right clear name="dismiss" (click)="dismiss()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-item>
   <form (ngSubmit)="create(session)">
-    <ion-item>
-      <h2 class="title">Detalhe da Sessão</h2>
-      <button item-right clear name="dismiss" (click)="dismiss()">
-        <ion-icon name="close"></ion-icon>
-      </button>
-    </ion-item>
     <ion-item>
       <ion-label floating color="secondary">Nome</ion-label>
       <ion-input type="text" [(ngModel)]="session.name" name="name" required></ion-input>

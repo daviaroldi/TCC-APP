@@ -22,6 +22,10 @@ export class SessionDetailPage {
     }
 
     addQuestion() {
+
+    }
+
+    delete() {
       
     }
 

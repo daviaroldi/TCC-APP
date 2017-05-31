@@ -2,7 +2,7 @@
   <div>
     <ion-item>
       <h2 class="title">Detalhe da Sessão</h2>
-      <button item-right clear (click)="dismiss()">
+      <button name="close" ion-button item-right clear (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-item>
@@ -30,6 +30,7 @@
         {{ question.id }}
       </p>
     </ion-item>
-    <button ion-button block (click)="addQuestion()">Adicionar Pergunta</button>
+    <button name="addQuestion" ion-button block (click)="addQuestion()">Adicionar Pergunta</button>
+    <button name="delete" ion-button block color="danger" (click)="delete()">Excluir</button>
   </div>
 </ion-content>
