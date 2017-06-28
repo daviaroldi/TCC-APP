@@ -2,12 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { ProfessorHomePage } from '../pages/professorHome/professorHome';
+import { SessionPage } from '../pages/professorHome/session/session';
+import { SessionCreatePage } from '../pages/professorHome/session/modal/session.create';
+import { SessionDetailPage } from '../pages/professorHome/session/modal/session.detail';
+import { BaseService } from '../services/base.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,27 +20,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ProfessorHomePage,
+    SessionPage,
+    SessionCreatePage,
+    SessionDetailPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ProfessorHomePage,
+    SessionPage,
+    SessionCreatePage,
+    SessionDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    BaseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

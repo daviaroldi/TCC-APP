@@ -3,6 +3,7 @@ page-login {
 		width: 100%;
 		ion-img {
 			//margin: 25% auto 0;
+            margin-left: 15%;
 			width: 100%;
 		}
 
@@ -13,5 +14,11 @@ page-login {
 		button {
 			margin-top: 20px!important;
 		}
+
+        p {
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
 	}
 }

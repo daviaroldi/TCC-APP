@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-	<!--<ion-img [width]="imgWidth" [height]="imgHeight" src="../../assets/img/chat.png"></ion-img>-->
+	<ion-img [width]="imgWidth" [height]="imgHeight" src="../../assets/img/chat2.jpeg"></ion-img>
 	<ion-item>
 	   	<ion-label floating>Usuário</ion-label>
 		<ion-input type="text" [(ngModel)]="user.username"></ion-input>
@@ -24,7 +24,10 @@
 		<ion-input type="password" [(ngModel)]="user.password"></ion-input>
 	</ion-item>
 	<!-- <ion-item> -->
-	<button ion-button block (click)="login(user)">Entrar</button>
-	<button ion-button block (click)="register(user)">Registrar</button>
+	<button ion-button block (click)="login(user)">Entre</button>
+    <p>
+        Ou
+    </p>
+	<button ion-button block (click)="register(user)">Registre-se</button>
 	<!-- </ion-item> -->
 </ion-content>

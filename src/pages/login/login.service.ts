@@ -8,7 +8,10 @@ export class LoginService extends BaseService {
      * Método para buscar os contadores
      */
     login(params){
-        let result = this.post(environment.urlLogin, params);
+        return this.post(environment.urlLogin, params);
+    }
 
+    userInfo(token){
+        return this.get(environment.urlUserInfo, {}, token);
     }
 }
