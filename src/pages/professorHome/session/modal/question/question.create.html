@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Questões</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-item>
+      <h2 class="title">Cadastro de Questão</h2>
+      <button name="close" ion-button item-right clear>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Questão:</h2>
+      <ion-textarea [(ngModel)]="question.description"></ion-textarea>
+    </ion-item>
+
+    <button name="addQuestion" ion-button block>Adicionar Pergunta</button>
+    <button name="delete" ion-button block color="danger" (click)="dismiss()">Excluir</button>
+  </div>
+</ion-content>

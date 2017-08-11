@@ -21,7 +21,10 @@ export class RegisterPage {
         last_name: ''
     };
 
-    constructor(public navCtrl: NavController, public service: RegisterService, public alertCtrl: AlertController) {
+    constructor(
+      public navCtrl: NavController,
+      public service: RegisterService,
+      public alertCtrl: AlertController) {
     }
 
     backToLogin() {

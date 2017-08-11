@@ -12,6 +12,8 @@ import { ProfessorHomePage } from '../pages/professorHome/professorHome';
 import { SessionPage } from '../pages/professorHome/session/session';
 import { SessionCreatePage } from '../pages/professorHome/session/modal/session.create';
 import { SessionDetailPage } from '../pages/professorHome/session/modal/session.detail';
+import { QuestionListPage } from '../pages/professorHome/session/modal/question/question.list';
+import { QuestionCreatePage } from '../pages/professorHome/session/modal/question/question.create';
 import { BaseService } from '../services/base.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +27,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfessorHomePage,
     SessionPage,
     SessionCreatePage,
-    SessionDetailPage
+    SessionDetailPage,
+    QuestionListPage,
+    QuestionCreatePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfessorHomePage,
     SessionPage,
     SessionCreatePage,
-    SessionDetailPage
+    SessionDetailPage,
+    QuestionListPage,
+    QuestionCreatePage
   ],
   providers: [
     StatusBar,

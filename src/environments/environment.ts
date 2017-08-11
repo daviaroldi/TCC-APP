@@ -3,5 +3,6 @@ export const environment = {
 	urlLogin: '/login',
   urlStudents: '/students/',
   urlUserInfo: '/user-info',
-	urlSessions: '/session/'
+	urlSessions: '/session/',
+	urlQuestions: '/question/'
 };

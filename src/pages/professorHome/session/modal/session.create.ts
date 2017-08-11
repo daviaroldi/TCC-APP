@@ -25,7 +25,6 @@ export class SessionCreatePage {
     // }
 
     create() {
-      console.log('teste');
       this.storage.get('token').then(token => {
         this.storage.get('user').then(user => {
           let params = {

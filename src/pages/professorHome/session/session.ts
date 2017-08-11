@@ -35,7 +35,6 @@ export class SessionPage {
     }
 
     sessionDetail(session) {
-      console.log(session);
       let detailModal = this.modalCtrl.create(SessionDetailPage, {session: session});
       detailModal.present();
     }

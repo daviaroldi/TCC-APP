@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Questões</ion-title>
+        <button item-right clear name="add">
+          <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <!-- <ion-item> -->
+      <!-- <button name="close" ion-button item-right clear (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button> -->
+    <!-- </ion-item> -->
+    <ion-item *ngFor="let question of session.questions">
+      <p>{{ question.description }}</p>
+    </ion-item>
+    <!-- <ion-item>
+      <h2 ion-text color="secondary">Nome</h2>
+      <p>{{ session.name }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Prazo</h2>
+      <p>{{ session.deadline | date: 'dd/MM/yyyy' }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Estudantes conectados</h2>
+        <p *ngFor="let student of session.students">
+          {{ student.first_name + ' ' + student.last_name }}
+        </p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Questões</h2>
+      <p *ngFor="let question of session.questions">
+        {{ question.id }}
+      </p>
+    </ion-item>
+    <button name="addQuestion" ion-button block (click)="addQuestion()">Adicionar Pergunta</button>
+    <button name="delete" ion-button block color="danger" (click)="delete()">Excluir</button> -->
+  </div>
+</ion-content>

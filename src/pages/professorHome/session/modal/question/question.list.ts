@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, Events, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { QuestionCreatePage } from './question/question.create';
+import { QuestionCreatePage } from './question.create'
 
 @Component({
-    selector: 'page-session-detail',
-    templateUrl: 'session.detail.html'
+    selector: 'page-question-list',
+    templateUrl: 'question.list.html'
 })
-export class SessionDetailPage {
+export class QuestionListPage {
     private session: Object;
 
     constructor(
@@ -20,18 +20,18 @@ export class SessionDetailPage {
 
     ngOnInit() {
       this.session = this.params.get('session');
+      console.log(this.session);
     }
 
     addQuestion() {
-      // let questionModal = this.modalCtrl.create(QuestionCreatePage, {session: this.session});
-      this.navCtrl.push(QuestionCreatePage, {session: this.session});
+      let questionModal = this.modalCtrl.create(QuestionCreatePage, {session: this.session});
     }
-
-    delete() {
-
-    }
-
-    dismiss() {
-      this.viewCtrl.dismiss();
-    }
+    //
+    // delete() {
+    //
+    // }
+    //
+    // dismiss() {
+    //   this.viewCtrl.dismiss();
+    // }
 }
