@@ -5,11 +5,14 @@ import { QuestionService } from "./question.service";
 
 @Component({
     selector: 'page-question-create',
-    templateUrl: 'question.create.html'
+    templateUrl: 'question.create.html',
+    providers: [ QuestionService ]
 })
 export class QuestionCreatePage {
     private question: Object = {
-      description: ''
+      description: '',
+      type: '',
+      options: []
     };
     private session: Object;
 
@@ -40,6 +43,10 @@ export class QuestionCreatePage {
     //
     dismiss() {
       this.viewCtrl.dismiss();
+    }
+
+    changeQuestionType() {
+      console.log(this.question['type']);
     }
 
     private notifySucess() {

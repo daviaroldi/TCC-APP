@@ -42,9 +42,12 @@ page-session-create {
         }
       }
     form {
-        margin-top: 15px;
+      margin-top: 15px;
       p {
         margin-top: 10px!important;
+      }
+      ion-item {
+        margin-bottom: 150px;
       }
     }
   }

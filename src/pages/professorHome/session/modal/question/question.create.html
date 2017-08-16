@@ -1,23 +1,31 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Questões</ion-title>
+        <ion-title>Cadastrar</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div>
-    <ion-item>
+    <!-- <ion-item>
       <h2 class="title">Cadastro de Questão</h2>
       <button name="close" ion-button item-right clear>
         <ion-icon name="close"></ion-icon>
       </button>
+    </ion-item> -->
+    <ion-item>
+      <!-- <h2 ion-text color="secondary">Questão:</h2> -->
+      <ion-label stacked>Tipo de Questão:</ion-label>
+      <ion-textarea [(ngModel)]="question.description" [ngModelOptions]="{standalone: true}" lineHeight="22"></ion-textarea>
     </ion-item>
     <ion-item>
-      <h2 ion-text color="secondary">Questão:</h2>
-      <ion-textarea [(ngModel)]="question.description"></ion-textarea>
+      <ion-label floating>Tipo de Questão:</ion-label>
+      <ion-select [(ngModel)]="question.type" (ionChange)="changeQuestionType(this)">
+        <ion-option value="1">Objetiva</ion-option>
+        <ion-option value="2">Textual</ion-option>
+      </ion-select>
     </ion-item>
 
-    <button name="addQuestion" ion-button block>Adicionar Pergunta</button>
-    <button name="delete" ion-button block color="danger" (click)="dismiss()">Excluir</button>
+    <button name="addQuestion" ion-button block (click)="add()">Adicionar Pergunta</button>
+    <!-- <button name="delete" ion-button block color="danger" (click)="dismiss()">Excluir</button> -->
   </div>
 </ion-content>
