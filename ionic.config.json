@@ -1,11 +1,14 @@
 {
   "name": "tcc-app",
-  "app_id": "",
+  "app_id": "cefbe954",
   "type": "ionic-angular",
   "proxies": [
     {
       "path": "/api/session/",
       "proxyUrl": "http://localhost:8000/api/session/"
     }
-  ]
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }

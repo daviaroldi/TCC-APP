@@ -14,4 +14,8 @@ export class SessionService extends BaseService {
     create(params, token) {
         return this.post(environment.urlSessions, params, token);
     }
+
+    getSession(id, token) {
+        return this.get(environment.urlSessions + id + '/', {}, token);
+    }
 }

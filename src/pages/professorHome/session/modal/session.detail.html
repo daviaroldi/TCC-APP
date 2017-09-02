@@ -26,8 +26,8 @@
     </ion-item>
     <ion-item>
       <h2 ion-text color="secondary">Questões</h2>
-      <p *ngFor="let question of session.questions">
-        {{ question.id }}
+      <p *ngFor="let question of session.questions; let i = index">
+        {{ (i+1) + '. ' + question.description | slice:0:30 }}{{ question.description.length > 30 ? ' ...' : '' }}
       </p>
     </ion-item>
     <button name="addQuestion" ion-button block (click)="addQuestion()">Adicionar Pergunta</button>

@@ -20,7 +20,6 @@ export class QuestionListPage {
 
     ngOnInit() {
       this.session = this.params.get('session');
-      console.log(this.session);
     }
 
     addQuestion() {

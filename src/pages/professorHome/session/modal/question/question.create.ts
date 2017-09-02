@@ -12,7 +12,8 @@ export class QuestionCreatePage {
     private question: Object = {
       description: '',
       type: '',
-      options: []
+      options: [],
+      session: ''
     };
     private session: Object;
 
@@ -27,6 +28,7 @@ export class QuestionCreatePage {
 
     ngOnInit() {
       this.session = this.params.get('session');
+      this.question['session'] = this.session['id'];
     }
 
     addQuestion() {
@@ -42,6 +44,7 @@ export class QuestionCreatePage {
     // }
     //
     dismiss() {
+      this.params.get('parentPage').reload();
       this.viewCtrl.dismiss();
     }
 
