@@ -18,4 +18,8 @@ export class SessionService extends BaseService {
     getSession(id, token) {
         return this.get(environment.urlSessions + id + '/', {}, token);
     }
+
+    deleteQuestion(params, token) {
+        return this.post(environment.urlQuestions, params, token);
+    }
 }

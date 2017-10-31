@@ -97,6 +97,92 @@ export class BaseService {
         });
     }
 
+    put(endpoint: string, params: any, token: any = null) {
+        let body = JSON.stringify(params);
+
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        });
+        // let options = this.getOptions();
+        if (token != null) {
+          headers.append('Authorization', 'Token ' + token);
+        }
+        let options = {
+            withCredentials: true,
+            headers : headers
+        };
+        // return Observable.fromPromise(headers).switchMap((headers) => this.http.post(environment.urlBase + endpoint, body, { headers: headers }));
+        // return this.http.post(environment.urlBase + endpoint, body,
+        //   options).map(
+        //   response => response.json());
+        return new Promise(resolve => {
+            this.http.put(environment.urlBase + endpoint + params['id'] + '/', body, options)
+                .map(response => {
+                        return response.json();
+                }).subscribe((data) => {
+                        // this.data = data;
+                        resolve(data)
+                    },
+                    (err) => {
+                        if (err.status == 400) {
+                            let body = err._body;
+                            body = JSON.parse(body);
+                            for (var i in body) {
+                                this.notifyError(body[i]);
+                            }
+                        } else {
+                            this.notifyError('Erro ao cadastrar! Verfique os campos preenchidos!');
+                        }
+                    }
+                );
+
+        });
+    }
+
+    delete(endpoint: string, params: any, token: any = null) {
+        let body = JSON.stringify(params);
+
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        });
+        // let options = this.getOptions();
+        if (token != null) {
+          headers.append('Authorization', 'Token ' + token);
+        }
+        let options = {
+            withCredentials: true,
+            headers : headers
+        };
+        // return Observable.fromPromise(headers).switchMap((headers) => this.http.post(environment.urlBase + endpoint, body, { headers: headers }));
+        // return this.http.post(environment.urlBase + endpoint, body,
+        //   options).map(
+        //   response => response.json());
+        return new Promise(resolve => {
+            this.http.delete(environment.urlBase + endpoint + params['id'] + '/', options)
+                .map(response => {
+                        return response.json();
+                }).subscribe((data) => {
+                        // this.data = data;
+                        resolve(data)
+                    },
+                    (err) => {
+                        if (err.status == 400) {
+                            let body = err._body;
+                            body = JSON.parse(body);
+                            for (var i in body) {
+                                this.notifyError(body[i]);
+                            }
+                        } else {
+                            this.notifyError('Erro ao deletar!');
+                        }
+                    }
+                );
+
+        });
+    }
+
     getOptions() {
         let options = new RequestOptions({
             withCredentials: true,

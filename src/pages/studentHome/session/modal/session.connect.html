@@ -1,0 +1,15 @@
+<ion-content padding>
+  <ion-item>
+    <h2 class="title">Conectar a Sessão</h2>
+    <button item-right clear name="dismiss" (click)="dismiss()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-item>
+  <form (ngSubmit)="connect()">
+    <ion-item>
+      <ion-label floating color="secondary">Código</ion-label>
+      <ion-input type="text" [(ngModel)]="code" name="code" required></ion-input>
+    </ion-item>
+    <button ion-button type="submit" name="save" block>Conectar</button>
+  </form>
+</ion-content>

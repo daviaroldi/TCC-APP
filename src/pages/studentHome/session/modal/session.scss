@@ -1,30 +1,4 @@
-page-session-detail {
-  ion-content {
-    div {
-      margin-top: 15px;
-      ion-item {
-        margin-left: 0;
-      }
-
-      h2.title {
-        text-align: justify;
-        font-size: 18px;
-      }
-      button:not(.slide-button) {
-        // background-color: white;
-        margin-top: 22px!important;
-
-        ion-icon {
-          font-size: 45px;
-          margin-right: 2px;
-          margin-top: -7px;
-        }
-      }
-    }
-  }
-}
-
-page-session-create {
+page-session-connect {
   ion-content {
       h2.title {
         text-align: justify;

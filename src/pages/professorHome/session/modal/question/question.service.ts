@@ -14,4 +14,8 @@ export class QuestionService extends BaseService {
     create(params, token) {
         return this.post(environment.urlQuestions, params, token);
     }
+
+    update(params, token) {
+        return this.put(environment.urlQuestions, params, token);
+    }
 }

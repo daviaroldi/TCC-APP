@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, Events, ModalController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { SessionService } from "./session.service";
-import { SessionCreatePage } from "./modal/session.create";
-import { SessionDetailPage } from "./modal/session.detail"
+import { SessionService } from "../../professorHome/session/session.service";
+import { SessionConnectPage } from "./modal/session.connect";
+// import { SessionDetailPage } from "./modal/session.detail"
 
 @Component({
-    selector: 'page-session',
+    selector: 'page-student-session',
     templateUrl: 'session.html',
     providers: [ SessionService ]
 })
-export class SessionPage {
+export class SessionStudentPage {
     private sessions: any[];
 
     constructor(
@@ -24,8 +24,8 @@ export class SessionPage {
       this.reloadList();
     }
 
-    create() {
-      let createModal = this.modalCtrl.create(SessionCreatePage, {});
+    connect() {
+      let createModal = this.modalCtrl.create(SessionConnectPage, {});
       createModal.present();
       createModal.onDidDismiss(data => {
         if ('name' in data) {
@@ -35,24 +35,20 @@ export class SessionPage {
     }
 
     sessionDetail(session) {
-      let detailModal = this.modalCtrl.create(SessionDetailPage, {session: session, parentPage: this});
-      detailModal.present();
+      // let detailModal = this.modalCtrl.create(SessionDetailPage, {session: session});
+      // detailModal.present();
     }
 
-    private reloadList() {
+    reloadList() {
       this.storage.get('token').then(token => {
         this.storage.get('user').then(user => {
           let params = {
-            professor: user.id
+            student: user.id
           };
           this.service.getSessions(params, token).then((sessions) => {
             this.sessions = sessions;
           });
         });
       });
-    }
-
-    reload() {
-      this.reloadList();
     }
 }

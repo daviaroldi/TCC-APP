@@ -9,6 +9,9 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ProfessorHomePage } from '../pages/professorHome/professorHome';
+import { StudentHomePage } from '../pages/studentHome/studentHome';
+import { SessionStudentPage } from '../pages/studentHome/session/session';
+import { SessionConnectPage } from '../pages/studentHome/session/modal/session.connect';
 import { SessionPage } from '../pages/professorHome/session/session';
 import { SessionCreatePage } from '../pages/professorHome/session/modal/session.create';
 import { SessionDetailPage } from '../pages/professorHome/session/modal/session.detail';
@@ -29,7 +32,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SessionCreatePage,
     SessionDetailPage,
     QuestionListPage,
-    QuestionCreatePage
+    QuestionCreatePage,
+    StudentHomePage,
+    SessionStudentPage,
+    SessionConnectPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SessionCreatePage,
     SessionDetailPage,
     QuestionListPage,
-    QuestionCreatePage
+    QuestionCreatePage,
+    StudentHomePage,
+    SessionStudentPage,
+    SessionConnectPage
   ],
   providers: [
     StatusBar,

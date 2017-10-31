@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewController, AlertController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { SessionService } from "../session.service"
-import moment from 'moment';
+import { SessionService } from "../../../professorHome/session/session.service";
 
 @Component({
-    selector: 'page-session-create',
-    templateUrl: 'session.create.html',
+    selector: 'page-session-connect',
+    templateUrl: 'session.connect.html',
     providers: [ SessionService ]
 })
-export class SessionCreatePage {
+export class SessionConnectPage {
     private session: Object = {
       name: '',
-      deadline: moment().format('YYYY-MM-DDTHH:mm:ssz'),
-      started_at: moment().format('YYYY-MM-DDTHH:mm:ssz')
+      deadline: ''
     };
 
     constructor(
@@ -27,16 +25,11 @@ export class SessionCreatePage {
     // }
 
     create() {
-      // let t = new Date();
       this.storage.get('token').then(token => {
         this.storage.get('user').then(user => {
-          let deadline = new Date(this.session['deadline']);
-          let started_at = new Date(this.session['started_at']);
-
           let params = {
             professor: user.id,
-            deadline: deadline.toISOString(),
-            started_at: started_at.toISOString(),
+            deadline: this.session['deadline'],
             name: this.session['name']
           };
 

@@ -4,6 +4,7 @@ import { LoginService } from './login.service';
 import { RegisterPage } from '../register/register';
 import { Storage } from "@ionic/storage";
 import { ProfessorHomePage } from "../professorHome/professorHome";
+import { StudentHomePage } from "../studentHome/studentHome";
 import { ProfessorListPage } from "../professorList/professorList";
 import { HomePage } from "../home/home";
 /**
@@ -58,7 +59,7 @@ export class LoginPage {
         if (user.is_professor === true)
             this.navCtrl.setRoot(ProfessorHomePage);
         else if (user.is_professor === false)
-            this.navCtrl.setRoot(ProfessorHomePage);
+            this.navCtrl.setRoot(StudentHomePage);
         else
             this.navCtrl.setRoot(LoginPage);
     }
