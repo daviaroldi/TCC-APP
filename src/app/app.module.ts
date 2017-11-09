@@ -17,10 +17,14 @@ import { SessionCreatePage } from '../pages/professorHome/session/modal/session.
 import { SessionDetailPage } from '../pages/professorHome/session/modal/session.detail';
 import { QuestionListPage } from '../pages/professorHome/session/modal/question/question.list';
 import { QuestionCreatePage } from '../pages/professorHome/session/modal/question/question.create';
+import { AnswerPage } from '../pages/professorHome/answer/answer';
+import { AnswerListPage } from '../pages/professorHome/answer/list/answer.list';
+import { AnswerShowPage } from '../pages/professorHome/answer/list/answer.show';
 import { BaseService } from '../services/base.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -35,13 +39,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     QuestionCreatePage,
     StudentHomePage,
     SessionStudentPage,
-    SessionConnectPage
+    SessionConnectPage,
+    AnswerPage,
+    AnswerListPage,
+    AnswerShowPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +64,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     QuestionCreatePage,
     StudentHomePage,
     SessionStudentPage,
-    SessionConnectPage
+    SessionConnectPage,
+    AnswerPage,
+    AnswerListPage,
+    AnswerShowPage
   ],
   providers: [
     StatusBar,

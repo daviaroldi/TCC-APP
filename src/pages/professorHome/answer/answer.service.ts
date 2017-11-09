@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 import { BaseService } from '../../../services/base.service';
 
 @Injectable()
-export class SessionService extends BaseService {
+export class AnswerService extends BaseService {
     /**
      * Método para buscar os contadores
      */
@@ -21,5 +21,13 @@ export class SessionService extends BaseService {
 
     deleteQuestion(params, token) {
         return this.delete(environment.urlQuestions, params, token);
+    }
+
+    getQuestions(params, token) {
+        return this.get(environment.urlQuestions, params, token);
+    }
+
+    getAnswers(params, token) {
+        return this.get(environment.urlQuestions, params, token);
     }
 }

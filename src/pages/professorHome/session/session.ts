@@ -3,7 +3,7 @@ import { NavController, Events, ModalController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { SessionService } from "./session.service";
 import { SessionCreatePage } from "./modal/session.create";
-import { SessionDetailPage } from "./modal/session.detail"
+import { SessionDetailPage } from "./modal/session.detail";
 
 @Component({
     selector: 'page-session',

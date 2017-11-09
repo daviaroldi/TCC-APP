@@ -48,7 +48,7 @@ export class SessionDetailPage {
       this.navCtrl.push(QuestionCreatePage, {session: this.session, parentPage: this});
     }
 
-    delete(question) {
+    deleteQuestion(question) {
       this.storage.get('token').then(token => {
         this.storage.get('user').then(user => {
           let params = {
@@ -56,16 +56,17 @@ export class SessionDetailPage {
             deadline: this.session['deadline'],
             name: this.session['name']
           };
-          this.service.deleteQuestion({id: question.id}, token).then((sessions) => {
+          this.service.deleteQuestion({id: question.id}, token).then((result) => {
+            console.log(result);
             let alert = this.alertCtrl.create({
-                title: 'Sucesso',
-                subTitle: 'Sessão cadastrada com sucesso!',
+                title: (result['error'] ? 'Erro' : 'Sucesso'),
+                subTitle: result['message'],
                 buttons: [
                   {
                     text: 'OK',
                     role: 'ok',
                     handler: () => {
-                      this.viewCtrl.dismiss(this.session);
+                      this.params.get('parentPage').reload();
                     }
                   }
                 ]

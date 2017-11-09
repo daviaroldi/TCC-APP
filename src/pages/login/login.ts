@@ -63,33 +63,4 @@ export class LoginPage {
         else
             this.navCtrl.setRoot(LoginPage);
     }
-
-    setPages(user) {
-      if (user.is_professor === true)
-          this.storage.set('pages', this.getProfessorPages());
-      else if (user.is_professor === false)
-          this.storage.set('pages', this.getStudentPages());
-      else
-          this.storage.set('pages', this.getDefaultPages());
-    }
-
-    getProfessorPages() {
-      return [
-        { title: 'Professor', component: LoginPage },
-        { title: 'Logout', component: LoginPage }
-      ];
-    }
-
-    getStudentPages() {
-      return [
-        { title: 'Student', component: LoginPage },
-        { title: 'Logout', component: LoginPage }
-      ];
-    }
-
-    getDefaultPages() {
-      return [
-        { title: 'Logout', component: LoginPage }
-      ];
-    }
 }

@@ -12,8 +12,8 @@ import moment from 'moment';
 export class SessionCreatePage {
     private session: Object = {
       name: '',
-      deadline: moment().format('YYYY-MM-DDTHH:mm:ssz'),
-      started_at: moment().format('YYYY-MM-DDTHH:mm:ssz')
+      deadline: moment().format('YYYY-MM-DDTHH:mm:ss'),
+      started_at: moment().format('YYYY-MM-DDTHH:mm:ss')
     };
 
     constructor(

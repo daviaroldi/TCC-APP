@@ -4,6 +4,7 @@ import { Storage } from "@ionic/storage";
 
 import { LoginPage } from "../login/login";
 import { SessionPage } from "./session/session";
+import { AnswerPage } from "./answer/answer";
 
 @Component({
     selector: 'page-home-professor',
@@ -31,6 +32,7 @@ export class ProfessorHomePage {
     getProfessorPages() {
       return [
         { title: 'Sessões', component: SessionPage },
+        { title: 'Respostas', component: AnswerPage },
         { title: 'Logout', component: LoginPage }
       ];
     }
