@@ -1,0 +1,51 @@
+<ion-content padding>
+  <div>
+    <ion-item>
+      <h2 class="title">Detalhe da Sessão</h2>
+      <button name="close" ion-button item-right clear (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Código</h2>
+      <p>{{ session.code }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Nome</h2>
+      <p>{{ session.name }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Inicia</h2>
+      <p>{{ session.started_at | date: 'dd/MM/yyyy H:mm' }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Termina</h2>
+      <p>{{ session.deadline | date: 'dd/MM/yyyy H:mm' }}</p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Estudantes conectados</h2>
+        <p *ngFor="let student of session.students">
+          {{ student.first_name + ' ' + student.last_name }}
+        </p>
+    </ion-item>
+    <ion-item>
+      <h2 ion-text color="secondary">Questões</h2>
+      <ion-list>
+        <ion-item-sliding *ngFor="let question of session.questions; let i = index">
+          <ion-item>{{ (i+1) + '. ' + question.description | slice:0:30 }}{{ question.description.length > 30 ? ' ...' : '' }}</ion-item>
+          <ion-item-options side="right">
+            <button class="slide-button" ion-button expandable  color="danger" (click)="deleteQuestion(question)">Apagar</button>
+          </ion-item-options>
+          <ion-item-options side="left">
+            <button class="slide-button" ion-button (click)="editQuestion(question)">Editar</button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <!-- <div ion-item *ngFor="let question of session.questions; let i = index" (click)="editQuestion(question)">
+          {{ (i+1) + '. ' + question.description | slice:0:30 }}{{ question.description.length > 30 ? ' ...' : '' }}
+        </div> -->
+      </ion-list>
+    </ion-item>
+    <button name="addQuestion" ion-button block (click)="addQuestion()">Adicionar Pergunta</button>
+    <!-- <button name="delete" ion-button block color="danger" (click)="delete()">Excluir</button> -->
+  </div>
+</ion-content>

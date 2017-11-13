@@ -1,0 +1,25 @@
+<ion-content padding>
+  <ion-item>
+    <h2 class="title">Detalhe da Sessão</h2>
+    <button item-right clear name="dismiss" (click)="dismiss()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-item>
+  <form (ngSubmit)="create(session)">
+    <ion-item>
+      <ion-label floating color="secondary">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="session.name" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating color="secondary">Inicia</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" name="started_at" [(ngModel)]="session.started_at" required></ion-datetime>
+      <!-- <ion-textarea [(ngModel)]="session.deadline" name="description"></ion-textarea> -->
+    </ion-item>
+    <ion-item>
+      <ion-label floating color="secondary">Termina</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" name="deadline" [(ngModel)]="session.deadline" required></ion-datetime>
+      <!-- <ion-textarea [(ngModel)]="session.deadline" name="description"></ion-textarea> -->
+    </ion-item>
+    <button ion-button type="submit" name="save" block>Salvar</button>
+  </form>
+</ion-content>

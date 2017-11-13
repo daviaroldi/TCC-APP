@@ -1,0 +1,40 @@
+page-question-create {
+  ion-header {
+    ion-title {
+      text-align: justify;
+      font-size: 18px;
+      margin-top: 9px!important;
+    }
+    button {
+      background-color: transparent;
+      margin-top: 22px!important;
+      float: right;
+      margin-right: 5px;
+
+      ion-icon {
+        font-size: 40px;
+        margin-right: 2px;
+        color: #488aff;
+      }
+    }
+  }
+  ion-content {
+    width: 100%;
+    ion-textarea {
+      height: 80px;
+      textarea {
+        height: 57px;
+      }
+    }
+    ion-item:last-of-type {
+      margin-bottom: 15px;
+    }
+    button#add {
+      background-color: transparent;
+      ion-icon {
+        background-color: transparent;
+        font-size: 25px;
+      }
+    }
+  }
+}

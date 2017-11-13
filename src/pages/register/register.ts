@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { RegisterService } from './register.service';
 /**
  * Generated class for the LoginPage page.
@@ -21,31 +21,63 @@ export class RegisterPage {
         last_name: ''
     };
 
-    constructor(public navCtrl: NavController, public service: RegisterService, public loadingCtrl: LoadingController) {
+    constructor(
+      public navCtrl: NavController,
+      public service: RegisterService,
+      public alertCtrl: AlertController) {
     }
 
     backToLogin() {
         this.navCtrl.pop();
     }
 
-    register(user) {
-        let result = this.service.register(user);
-
-        // if (result.username)
-        this.notifySucess();
+    register() {
+        this.service.register(this.user).then(data => {
+            if (data.hasOwnProperty('id')) {
+                this.user = data;
+                this.notifySucess();
+            }
+        });
     }
 
     private notifySucess() {
-        let loading = this.loadingCtrl.create({
-            spinner: 'hide',
-            content: 'Usuário Cadastrado com Sucesso',
-            duration: 3000
+        let alert = this.alertCtrl.create({
+            title: 'Sucesso',
+            subTitle: 'Usuário Cadastrado com Sucesso',
+            buttons: [
+                {
+                    text: 'OK',
+                    handler: () => {
+                        this.navCtrl.pop();
+                    }
+                }
+            ]
         });
 
-        loading.onDidDismiss(() => {
-            this.navCtrl.pop();
-        });
-
-        loading.present();
+        alert.present();
     }
+
+    // private notifySucess() {
+    //     let loading = this.alertCtrl.create({
+    //         spinner: 'hide',
+    //         content: 'Usuário Cadastrado com Sucesso',
+    //         duration: 3000
+    //     });
+    //
+    //     loading.onDidDismiss(() => {
+    //         this.navCtrl.pop();
+    //     });
+    //
+    //     loading.present();
+    // }
+    //
+    // private notifyError(msg) {
+    //     let loading = this.loadingCtrl.create({
+    //         spinner: 'hide',
+    //         content: msg,
+    //         duration: 3000
+    //     });
+    //
+    //     loading.present();
+    // }
 }
