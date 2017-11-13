@@ -28,6 +28,6 @@ export class AnswerService extends BaseService {
     }
 
     getAnswers(params, token) {
-        return this.get(environment.urlQuestions, params, token);
+        return this.get(environment.urlAnswers, params, token);
     }
 }

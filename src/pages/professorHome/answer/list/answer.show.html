@@ -9,13 +9,35 @@
 
 
 <ion-content padding>
-  <h2>Qual a Sua linguagem de programação favorita? Explique quais você mais gosta.{{ question.description }}</h2>
-  <div *ngIf="showGraph" class="chart" style="display: block; height: 100%">
-    <canvas baseChart
+  <h4>Qual a Sua linguagem de programação favorita? Explique quais você mais gosta.{{ question.description }}</h4>
+  <!-- <div *ngIf="showGraph" class="chart" style="display: block; height: 100%"> -->
+    <!-- <canvas baseChart
+                height="400"
+
                 [data]="doughnutChartData"
                 [labels]="doughnutChartLabels"
                 [chartType]="doughnutChartType"
                 (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-  </div>
+                (chartClick)="chartClicked($event)"></canvas> -->
+  <!-- </div> -->
+        <canvas  [height]="heightCanvas" #doughnutCanvas></canvas>
+    <!-- <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas height="500"
+                width="500" #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card> -->
+    <ion-grid *ngIf="question.type == 2">
+      <ion-row *ngFor="let answer of answers">
+        <ion-col>
+          {{ answer.student.first_name + ' ' + answer.student.last_name }}
+        </ion-col>
+        <ion-col>
+          {{ answer.value | slice:0:10 }}{{ answer.value.length > 10 ? ' ...' : '' }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
