@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Questão</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list radio-group *ngIf="question.type == 1" [(ngModel)]="answer.option">
+    <ion-list-header>
+      Selecione uma opção
+    </ion-list-header>
+
+    <ion-item *ngFor="let option of question.options">
+      <ion-label>{{ option.label }}</ion-label>
+      <ion-radio [value]="option.id"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <ion-item *ngIf="question.type == 2">
+    <ion-label stacked color="secondary">{{ question.description }}</ion-label>
+    <ion-textarea [(ngModel)]="answer.value" name="description"></ion-textarea>
+  </ion-item>
+  <button ion-button (click)="confirmAnswer()"name="save" block>Responder</button>
+</ion-content>

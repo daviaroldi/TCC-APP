@@ -3,7 +3,7 @@ import { NavController, Events, ModalController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { SessionService } from "../../professorHome/session/session.service";
 import { SessionConnectPage } from "./modal/session.connect";
-// import { SessionDetailPage } from "./modal/session.detail"
+import { DetailPage } from "./detail/detail"
 
 @Component({
     selector: 'page-student-session',
@@ -35,8 +35,13 @@ export class SessionStudentPage {
     }
 
     sessionDetail(session) {
-      // let detailModal = this.modalCtrl.create(SessionDetailPage, {session: session});
-      // detailModal.present();
+      let detailModal = this.modalCtrl.create(DetailPage, {session: session});
+      detailModal.present();
+      detailModal.onDidDismiss(data => {
+        if ('name' in data) {
+          this.reloadList();
+        }
+      });
     }
 
     reloadList() {

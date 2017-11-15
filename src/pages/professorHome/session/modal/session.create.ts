@@ -15,6 +15,8 @@ export class SessionCreatePage {
       deadline: moment().format('YYYY-MM-DDTHH:mm:ss'),
       started_at: moment().format('YYYY-MM-DDTHH:mm:ss')
     };
+    // private deadline = moment().format('YYYY-MM-DDTHH:mm:ss');
+    // private started_at = moment().format('YYYY-MM-DDTHH:mm:ss');
 
     constructor(
       public storage: Storage,

@@ -6,5 +6,6 @@ export const environment = {
   urlUserInfo: '/user-info',
 	urlSessions: '/session/',
 	urlQuestions: '/question/',
-	urlAnswers: '/answers/'
+	urlAnswers: '/answers/',
+	urlSessionConnect: '/session-connect/'
 };
