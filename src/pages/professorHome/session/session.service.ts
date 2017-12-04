@@ -22,4 +22,12 @@ export class SessionService extends BaseService {
     deleteQuestion(params, token) {
         return this.delete(environment.urlQuestions, params, token);
     }
+
+    answerQuestion(params, token) {
+        return this.post(environment.urlAnswers, params, token);
+    }
+
+    getAnswers(params, token) {
+        return this.get(environment.urlAnswers, params, token);
+    }
 }

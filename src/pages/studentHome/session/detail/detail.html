@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ session.name }}</ion-title>
+        <button item-right clear name="dismiss" (click)="dismiss()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <button ion-button block (click)="connect()">Conectar Sessão</button> -->
+  <h4>Responda as Questões</h4>
+  <ion-list>
+   <button ion-item *ngFor="let question of session.questions" (click)="answer(question)">
+     {{question.description}}
+   </button>
+ </ion-list>
+</ion-content>

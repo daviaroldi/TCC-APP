@@ -11,13 +11,13 @@
       <ion-input type="text" [(ngModel)]="session.name" name="name" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating color="secondary">Inicia</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" name="started_at" [(ngModel)]="session.started_at" required></ion-datetime>
+      <ion-label floating color="secondary">Inicia em</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="session.started_at" [ngModelOptions]="{standalone:true}" required></ion-datetime>
       <!-- <ion-textarea [(ngModel)]="session.deadline" name="description"></ion-textarea> -->
     </ion-item>
     <ion-item>
-      <ion-label floating color="secondary">Termina</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" name="deadline" [(ngModel)]="session.deadline" required></ion-datetime>
+      <ion-label floating color="secondary">Termina em</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" [(ngModel)]="session.deadline" [ngModelOptions]="{standalone:true}" required></ion-datetime>
       <!-- <ion-textarea [(ngModel)]="session.deadline" name="description"></ion-textarea> -->
     </ion-item>
     <button ion-button type="submit" name="save" block>Salvar</button>

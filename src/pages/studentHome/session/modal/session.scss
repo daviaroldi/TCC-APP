@@ -26,3 +26,48 @@ page-session-connect {
     }
   }
 }
+
+page-detail, page-detail-answer {
+  ion-header {
+      h2.title {
+        text-align: justify;
+        font-size: 18px;
+        margin-top: 13px!important;
+      }
+      button {
+        background-color: #f8f8f8;
+        // margin-top: 22px!important;
+
+        ion-icon {
+          font-size: 45px;
+          margin-right: 2px;
+          margin-top: -7px;
+        }
+      }
+  }
+
+  ion-content {
+    ion-item {
+      margin-top: 150px;
+    }
+  }
+}
+
+page-detail-answer {
+  ion-navbar {
+    padding-top: calc(20px + 4px)!important;
+    min-height: calc(44px + 20px)!important;
+
+    ion-title {
+      // padding-top: 20px;
+      height: calc(44px + 20px);
+      min-height: calc(44px + 20px);
+      padding: 20px 0 0 0!important;
+    }
+
+    div.toolbar-title {
+      margin: 0 auto!important;
+      width: auto!important;
+    }
+  }
+}

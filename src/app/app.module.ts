@@ -12,6 +12,8 @@ import { ProfessorHomePage } from '../pages/professorHome/professorHome';
 import { StudentHomePage } from '../pages/studentHome/studentHome';
 import { SessionStudentPage } from '../pages/studentHome/session/session';
 import { SessionConnectPage } from '../pages/studentHome/session/modal/session.connect';
+import { DetailPage } from '../pages/studentHome/session/detail/detail';
+import { DetailAnswerPage } from '../pages/studentHome/session/detail/detail.answer';
 import { SessionPage } from '../pages/professorHome/session/session';
 import { SessionCreatePage } from '../pages/professorHome/session/modal/session.create';
 import { SessionDetailPage } from '../pages/professorHome/session/modal/session.detail';
@@ -42,7 +44,9 @@ import { ChartsModule } from 'ng2-charts';
     SessionConnectPage,
     AnswerPage,
     AnswerListPage,
-    AnswerShowPage
+    AnswerShowPage,
+    DetailPage,
+    DetailAnswerPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ import { ChartsModule } from 'ng2-charts';
     SessionConnectPage,
     AnswerPage,
     AnswerListPage,
-    AnswerShowPage
+    AnswerShowPage,
+    DetailPage,
+    DetailAnswerPage
   ],
   providers: [
     StatusBar,
